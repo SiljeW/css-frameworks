@@ -3,9 +3,17 @@ import { headers } from "../headers";
 
 export async function getKey(name) {
     try {
-        const value = localStorage.getItem(key);
-        return JSON.parse(value);
-    } catch {
-        return null
+        const response = await fetch(API_AUTH_KEY, {
+            headers: headers(),
+            method: "POST",
+            body: JSON.stringify({ name }),
+        });
+
+        if (response.ok) {
+            const key = response.json();
+            localStorage.setItem("Api Key", JSON.stringify(key));
+        }
+    } catch (error) {
+        alert("Error fetching API");
     }
 }
