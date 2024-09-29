@@ -1,6 +1,11 @@
 import { API_AUTH_LOGIN } from "../constants.js";
 import * as storage from "../../storage/index.js";
 
+/**
+ * Send a request to the server and return a JSON response object containing the results
+ * of the request.
+ * Using storage to save the results of the request.
+ */
 export async function login(profile) {
     const body = JSON.stringify(profile);
 
