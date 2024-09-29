@@ -10,7 +10,8 @@ export async function register(profile) {
     body: JSON.stringify(profile),
   });
 
-  return response.json();
+  const result = await response.json()
+  return result
 }
 
 

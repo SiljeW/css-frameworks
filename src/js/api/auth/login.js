@@ -1,7 +1,8 @@
 import { API_AUTH_LOGIN } from "../constants.js";
+import * as storage from "../../storage/index.js";
 
-export async function login({ email, password }) {
-    const body = JSON.stringify({ email, password });
+export async function login(profile) {
+    const body = JSON.stringify(profile);
 
     const response = await fetch(API_AUTH_LOGIN, {
         headers: {
@@ -9,15 +10,14 @@ export async function login({ email, password }) {
         },
         method: "POST",
         body,
-    });
+    })
 
-    if (response.ok) {
-        const { data } = await response.json();
-        const { accessToken: token, ...user } = data;
-        localStorage.token = token;
-        localStorage.user = JSON.stringify(user);
-        return data;
-    }
+    const { accessToken, ...user } = await response.json()
 
-    throw new Error("Unable to login");
+
+    storage.save("token", accessToken)
+
+    storage.save("profile", user)
 }
+
+
