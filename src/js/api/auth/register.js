@@ -1,8 +1,16 @@
-export async function register({
-  name,
-  email,
-  password,
-  bio,
-  banner,
-  avatar,
-}) {}
+import { authFetch } from "../../utilities/authFetch";
+import { API_AUTH_REGISTER } from "../constants";
+
+export async function register(profile) {
+  const response = await authFetch(API_AUTH_REGISTER, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(profile),
+  });
+
+  return response.json();
+}
+
+
