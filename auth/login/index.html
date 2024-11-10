@@ -6,23 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
   </head>
-
-  <body>
-    <h1>Login</h1>
-    <form id="loginForm" name="login">
-      <div>
-        <label for="email">Email</label>
-        <input id="email" type="email" name="email" required />
+  
+  <body class="bg-gray-100 flex flex-col items-center min-h-screen text-gray-800">
+    <header class="bg-gray-100 text-white p-4 mb-6">
+      <div class="container mx-auto flex flex-col items-center"></div>
+        <img src="/public/images/noroff-logo.png" alt="Noroff Logo" class="h-18 mb-2" />
       </div>
-
-      <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required />
-      </div>
-
-      <a href="/auth/register/">Register</a>
-      <button>Login</button>
-    </form>
+    </header>
+    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+      <h1 class="text-2xl font-bold text-center mb-6">Login</h1>
+  
+      <form id="loginForm" name="login" class="space-y-6">
+        <div>
+          <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+          <input id="email" type="email" name="email" required 
+                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+  
+        <div>
+          <label for="password" class="block text-gray-700 font-semibold mb-2">Password</label>
+          <input id="password" type="password" name="password" required 
+                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+  
+        <div class="text-center">
+          <a href="/auth/register/" class="text-blue-600 hover:underline">Register</a>
+        </div>
+  
+        <button type="submit" 
+                class="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          Login
+        </button>
+      </form>
+    </div>
+    <footer class=" text-white text-center p-4"></footer>
+    <p>&copy; 2023 Noroff. All rights reserved.</p>
+    </footer>
   </body>
 </html>

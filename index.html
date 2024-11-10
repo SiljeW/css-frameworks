@@ -7,17 +7,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Noroff FED2 JS2 CA</title>
   <script type="module" src="/src/app.js"></script>
-  <link href="src/css/style.css">
+  <link rel="stylesheet" href="./output.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+
 </head>
 
-<body>
-  <img src="public/images/noroff-logo.png" alt="Noroff Logo" />
-
-  <h1>Home</h1>
-
-  <a href="/profile/">My Profile</a>
-  <a href="/auth/login/">Login</a>
-  <a href="/auth/register/">Register</a>
-  <button>Logout</button>
+<body class="bg-gray-100 text-gray-800 flex flex-col min-h-screen">
+  <header class="bg-gray-100 text-white p-4">
+    <div class="container mx-auto flex flex-col items-center"></div>
+      <img src="public/images/noroff-logo.png" alt="Noroff Logo" class="h-18 mb-2" />
+      <h1 class="text-2xl font-bold hidden">Home</h1>
+    </div>
+  </header>
+  <main class="container mx-auto p-8 flex-auto">
+    <div class="container mx-auto p-4 bg-gray-600 rounded-md">
+      <div class="flex space-x-4 justify-evenly items-center my-8">
+        <a href="/profile/" class="text-white text-xl bg-red-600 px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg">My Profile</a>
+        <a href="/auth/login/" class="text-gray-100 text-xl hover:underline">Login</a>
+        <a href="/auth/register/" class="text-gray-100 text-xl hover:underline">Register</a>
+        <button id="logoutButton" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 hidden">Logout</button>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-gray-700 text-white text-center p-4"></footer>
+    <p>&copy; 2023 Noroff. All rights reserved.</p>
+  </footer>
 </body>
 </html>
